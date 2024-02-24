@@ -5,6 +5,7 @@ export interface IPrisoner {
   readonly name: string;
   // Describes the strategy for the prisoner for the score board
   readonly strategy?: string;
+  initialPlay: boolean;
   game: IGame;
   label: TLabel;
   action(): boolean;

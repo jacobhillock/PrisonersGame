@@ -2,9 +2,9 @@ import {IGame, TLabel} from "@src/types";
 import {Prisoner} from "@src/Prisoner";
 
 export default class TitForTat extends Prisoner {
-  readonly name = "Nice TitForTat";
-  readonly strategy = "Cooperate on the first round, and then do whatever the other player did in the previous round.";
-  initialPlay = true;
+  readonly name = "Mean TitForTat";
+  readonly strategy = "Defect on the first round, and then do whatever the other player did in the previous round.";
+  initialPlay = false;
 
   constructor(game: IGame, label: TLabel) {
     super(game, label);

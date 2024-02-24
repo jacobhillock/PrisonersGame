@@ -7,6 +7,7 @@ export interface PrisonerConstructor {
 export abstract class Prisoner implements IPrisoner {
   abstract readonly name: string;
   abstract readonly strategy?: string;
+  abstract initialPlay: boolean;
   game: IGame;
   label: TLabel;
 
@@ -18,7 +19,7 @@ export abstract class Prisoner implements IPrisoner {
   othersMove(n: number = 1) {
     const nthLastMove = this.game.rounds.at(-1*n);
     if (!nthLastMove) {
-      return true;
+      return null;
     }
 
     return nthLastMove[`action${this.label === 'A' ? 'B' : 'A'}`];

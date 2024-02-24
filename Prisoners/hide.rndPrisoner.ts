@@ -5,7 +5,8 @@ export function createPrisoner (percent: number): PrisonerConstructor {
   return class RndPrisoner extends Prisoner {
     readonly name = `.rndPrisoner ${percent}`;
     readonly strategy = "Randomly choose to cooperate or defect.";
-  
+    initialPlay = Math.random() < percent;
+
     constructor(game: IGame, label: TLabel) {
       super(game, label);
     }
