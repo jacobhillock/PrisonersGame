@@ -50,6 +50,30 @@ export class Game implements IGame {
     }
   }
 
+  getScoreByType(type: PrisonerConstructor) {
+    if (this.prisonerA instanceof type) {
+      return this.scoreA;
+    } else if (this.prisonerB instanceof type) {
+      return this.scoreB;
+    } else {
+      return null;
+    }
+  }
+
+  getPrisonerByType(type: PrisonerConstructor) {
+    if (this.prisonerA instanceof type) {
+      return this.prisonerA;
+    } else if (this.prisonerB instanceof type) {
+      return this.prisonerB;
+    } else {
+      return null;
+    }
+  }
+
+  hasType(type: PrisonerConstructor) {
+    return this.prisonerA instanceof type || this.prisonerB instanceof type;
+  }
+
   get winner() {
     if (this.scoreA > this.scoreB) {
       return this.prisonerA;
