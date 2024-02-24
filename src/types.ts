@@ -20,4 +20,5 @@ export interface IGame {
   scoreA: number;
   scoreB: number;
   rounds: Round[];
+  winner: IPrisoner | null;
 }
