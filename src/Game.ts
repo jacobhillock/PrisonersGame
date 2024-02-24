@@ -91,4 +91,8 @@ export class Game implements IGame {
   get bName() {
     return this.prisonerB.name;
   }
+
+  get prisonersSameType() {
+    return this.prisonerA.constructor === this.prisonerB.constructor;
+  }
 }

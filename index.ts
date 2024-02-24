@@ -1,6 +1,5 @@
 import { Game } from "@src/Game";
 import { loadPrisoners } from "@src/loadPrisoners";
-import TitForTat from "./Prisoners/TitForTat";
 
 const scores: { [key: string]: number } = {};
 const wins: { [key: string]: number } = {};
@@ -23,6 +22,10 @@ for (let prisonerAIndex = 0; prisonerAIndex < prisoners.length; prisonerAIndex++
     scores[prisonerA.source] = (scores[prisonerA.source] || 0) + (game.getScoreByType(prisonerA.prisoner) || 0);
     scores[prisonerB.source] = (scores[prisonerB.source] || 0) + (game.getScoreByType(prisonerB.prisoner) || 0);
 
+    if (game.prisonersSameType) {
+      continue;
+    }
+
     if (game.winner === game.getPrisonerByType(prisonerA.prisoner)) {
       wins[prisonerA.source] = (wins[prisonerA.source] || 0) + 1;
     } else if (game.winner === game.getPrisonerByType(prisonerB.prisoner)) {
@@ -33,8 +36,22 @@ for (let prisonerAIndex = 0; prisonerAIndex < prisoners.length; prisonerAIndex++
 
 const normalizedScores: {[key: string]: number} = {};
 for (const prisoner of prisoners) {
-  normalizedScores[prisoner.source] = scores[prisoner.source] / games.filter(game => game.hasType(prisoner.prisoner)).length;
+  normalizedScores[prisoner.source] = scores[prisoner.source] / prisoners.length;
 }
 
-console.log(normalizedScores);
-console.log(wins);
+// Calculate the maximum length of prisoner names
+const maxNameLength = Math.max(...Object.keys(normalizedScores).map(name => name.length));
+
+// Sort and print normalized scores
+const sortedNormalizedScores = Object.entries(normalizedScores).sort((a, b) => b[1] - a[1]);
+console.log('Normalized Scores:');
+for (const [prisoner, score] of sortedNormalizedScores) {
+  console.log(`${prisoner.padEnd(maxNameLength)} : ${score}`);
+}
+
+// Sort and print wins
+const sortedWins = Object.entries(wins).sort((a, b) => b[1] - a[1]);
+console.log('\nWins:');
+for (const [prisoner, win] of sortedWins) {
+  console.log(`${prisoner.padEnd(maxNameLength)} : ${win}`);
+}
