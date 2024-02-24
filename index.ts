@@ -1,8 +1,10 @@
 import { Game } from "@src/Game";
-import {readdirSync} from 'fs';
+import { loadPrisoners } from "@src/loadPrisoners";
 
-const prisoners = readdirSync('./Prisoners').map(file => require(`./Prisoners/${file}`).default);
 const games: Array<Array<Game>> = [];
+const prisoners = loadPrisoners();
+
+console.log(`Loaded ${prisoners.length} prisoners`);
 
 for (const prisonerA of prisoners) {
   const nextRow: Array<Game> = []

@@ -1,4 +1,4 @@
-import { IGame, IPrisoner, Round } from '@src/Types';
+import { IGame, IPrisoner, Round } from '@src/types';
 import { PrisonerConstructor } from '@src/Prisoner';
 import { gaussianRandom } from '@src/random';
 

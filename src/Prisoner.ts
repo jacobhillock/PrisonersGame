@@ -1,4 +1,4 @@
-import { IGame, IPrisoner, TLabel } from '@src/Types';
+import { IGame, IPrisoner, TLabel } from '@src/types';
 
 export interface PrisonerConstructor {
   new (game: IGame, label: TLabel): Prisoner;

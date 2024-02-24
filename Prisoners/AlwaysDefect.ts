@@ -1,4 +1,4 @@
-import {IGame, TLabel} from "@src/Types";
+import {IGame, TLabel} from "@src/types";
 import {Prisoner} from "@src/Prisoner";
 
 export default class TitForTat extends Prisoner {
