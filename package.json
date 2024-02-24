@@ -1,0 +1,13 @@
+{
+  "name": "prisonersgame",
+  "version": "1.0.0",
+  "description": "A game of prisoners and an interface to have strategies compete",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
