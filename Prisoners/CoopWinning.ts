@@ -15,6 +15,6 @@ export default class TitForTat extends Prisoner {
       return this.initialPlay;
     }
 
-    return this === this.game.winner || this.initialPlay;
+    return this === this.game.winner;
   }
 }
