@@ -20,7 +20,7 @@ export class Game implements IGame {
     this.prisonerB = new prisonerB (this, 'B');
   }
 
-  doRount() {
+  doRound() {
     if (this.rounds.length >= this.totalRounds) {
       return;
     }
@@ -46,7 +46,7 @@ export class Game implements IGame {
 
   play() {
     while (this.rounds.length < this.totalRounds) {
-      this.doRount();
+      this.doRound();
     }
   }
 
