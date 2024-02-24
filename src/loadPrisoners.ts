@@ -12,7 +12,7 @@ export function loadPrisoners() {
   prisonerSources.forEach(source => {
     const files = readdirSync(source);
     files.forEach(file => {
-      if (file.endsWith('.ts') && !file.startsWith('.')) {
+      if (file.endsWith('.ts') && !file.startsWith('hide.')) {
         const prisoner: PrisonerConstructor = require(`@/${source}/${file}`).default;
         prisoners.push(prisoner);
       }
